@@ -3,6 +3,7 @@ using Api.Backend.Data.Dtos.Usuario;
 using Api.Backend.Domain.Models;
 using Api.Backend.Services;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,7 @@ namespace Api.Backend.Controllers
 
         [HttpPost]
         [Route("login")]
+        [AllowAnonymous]
         public ActionResult<dynamic> Authenticate([FromBody] LoginUsuarioDto model)
         {
  
