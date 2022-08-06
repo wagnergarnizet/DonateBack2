@@ -56,6 +56,7 @@ namespace Api.Backend.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "Administrador,Usuario")]
         public IActionResult AtualizaCategoria(int id, [FromBody] UpdateCategoriaDto categoriaDto)
         {
             Categoria categoria = _context.Categorias.FirstOrDefault(categoria => categoria.Id == id);
@@ -70,6 +71,7 @@ namespace Api.Backend.Controllers
 
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Administrador,Usuario")]
         public IActionResult DeletaCategoria(int id)
         {
             Categoria categoria = _context.Categorias.FirstOrDefault(categoria => categoria.Id == id);
