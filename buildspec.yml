@@ -20,7 +20,7 @@ phases:
   post_build:
     commands:
       - echo Publish started on `date`
-      - dotnet publish -c Release -r linux-x64 -o ./ Api.Backend/*.csproj
+      - dotnet publish -c release -o ./build_output Api.Backend/*.csproj
       
 artifacts:
   files:
