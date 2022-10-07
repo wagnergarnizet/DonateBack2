@@ -1,0 +1,14 @@
+name: ZapScan
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ZAP Scan
+        uses: zaproxy/action-full-scan@v0.2.0
+        with:
+          target: 'http://backdonate-env.eba-3zm82maf.sa-east-1.elasticbeanstalk.com'
