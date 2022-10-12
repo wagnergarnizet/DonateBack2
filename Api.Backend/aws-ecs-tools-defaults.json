@@ -1,0 +1,28 @@
+
+{
+    "region" : "sa-east-1",
+    "profile" : "default",
+    "configuration" : "Release",
+    "image-tag"     : "apibackend:latest",
+    "docker-build-working-dir" : "",
+    "cluster"                  : "default",
+    "launch-type"              : "FARGATE",
+    "launch-subnets"           : "subnet-0ee6bb4312c387bca,subnet-0fb8a273504be7119,subnet-0bc4980deb4e61129",
+    "launch-security-groups"   : "sg-028b8b8eb8c730f6b",
+    "assign-public-ip"         : true,
+    "task-definition-name"     : "first-run-task-definition",
+    "task-cpu"                 : "256",
+    "task-memory"              : "512",
+    "platform-version"         : "LATEST",
+    "task-definition-task-role" : "arn:aws:iam::816279202940:role/ecsTaskExecutionRole",
+    "task-execution-role"       : "ecsTaskExecutionRole",
+    "container-name"            : "ApiBackend",
+    "container-port-mapping"    : "8080:8080,5000:5000",
+    "container-environment-variables" : "\"ASPNETCORE_ENVIRONMENT\"=\"Production\";\"ConnectionStrings\"=\"server=donatemysqldb.c76tf2gfuux0.sa-east-1.rds.amazonaws.com;database=donatedb;user=root;password=wagner123456\"",
+    "skip-image-push"                 : false,
+    "cluster-service"                 : "default/sample-app-service",
+    "desired-count"                   : 1,
+    "deployment-minimum-healthy-percent" : 100,
+    "deployment-maximum-percent"         : 200,
+    "vstoolkit-deployment-mode"          : "DeployService"
+}
