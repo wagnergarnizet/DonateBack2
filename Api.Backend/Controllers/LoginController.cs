@@ -5,10 +5,7 @@ using Api.Backend.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Api.Backend.Controllers
 {
@@ -32,7 +29,7 @@ namespace Api.Backend.Controllers
         {
  
             Usuario usuario =  _context.Usuarios.FirstOrDefault(x =>
-                               x.Nome.ToLower() == model.Nome.ToLower()
+                               x.Email.ToLower() == model.Email.ToLower()
                                && x.Senha == model.Senha);
             if (usuario != null)
             {
