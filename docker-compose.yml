@@ -23,6 +23,7 @@ services:
   database:
     image: mysql:8.0.22
     container_name: donatemysqldb
+    command: --lower_case_table_names=1
     ports:
       - "3308:3306"
     expose: 
