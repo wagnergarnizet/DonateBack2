@@ -9,6 +9,8 @@ namespace Api.Backend.Data.Dtos.Usuario
 {
     public class LoginUsuarioDto
     {
+        public int id { get; set; }
+
         [Required(ErrorMessage = "O campo de nome é obrigatório")]
         public string Nome { get; set; }
 
