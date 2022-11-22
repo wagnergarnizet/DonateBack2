@@ -3,14 +3,16 @@ using System;
 using Api.Backend.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Api.Backend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221122004018_Produto_campanha")]
+    partial class Produto_campanha
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -137,13 +139,13 @@ namespace Api.Backend.Migrations
                         .HasColumnType("text");
 
                     b.Property<decimal>("Latitude")
-                        .HasColumnType("decimal(18, 8)");
+                        .HasColumnType("decimal(18, 2)");
 
                     b.Property<string>("Logotipo")
                         .HasColumnType("text");
 
                     b.Property<decimal>("Longitude")
-                        .HasColumnType("decimal(18, 8)");
+                        .HasColumnType("decimal(18, 2)");
 
                     b.Property<string>("Nome")
                         .IsRequired()
