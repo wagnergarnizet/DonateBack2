@@ -30,5 +30,8 @@ namespace Api.Backend.Domain.Models
         public int CategoriaId { get; set; }
 
         public virtual List<Estoque> Estoques { get; set; }
+
+        public virtual List<Produto_Campanha>  Produto_Campanhas { get; set; }
+        
     }
 }

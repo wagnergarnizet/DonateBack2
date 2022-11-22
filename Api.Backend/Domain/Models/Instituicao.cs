@@ -34,8 +34,10 @@ namespace Api.Backend.Domain.Models
 
         public string Bairro { get; set; }
 
+        [Column(TypeName = "decimal(18, 8)")]
         public decimal Latitude { get; set; }
 
+        [Column(TypeName = "decimal(18, 8)")]
         public decimal Longitude { get; set; }
 
         public string Logotipo { get; set; }
