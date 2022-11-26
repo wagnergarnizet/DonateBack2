@@ -1,4 +1,7 @@
 using Api.Backend.Data;
+using Api.Backend.Imagem;
+using Api.Backend.Interfaces;
+using Google.Protobuf.WellKnownTypes;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -34,6 +37,8 @@ namespace Api.Backend
             services.AddDbContext<AppDbContext>(opts => opts.UseMySQL(Configuration.GetConnectionString("DonateConnection")));
             services.AddControllers();
             var key = Encoding.ASCII.GetBytes(Settings.Secret);
+            services.AddSingleton((_) => Configuration);
+            services.AddScoped<IFileService, FileService>();
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -78,7 +83,7 @@ namespace Api.Backend
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
-
+            app.UseStaticFiles();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
