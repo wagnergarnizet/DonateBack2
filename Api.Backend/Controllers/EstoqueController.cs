@@ -15,8 +15,8 @@ namespace Api.Backend.Controllers
     [Route("[controller]")]
     public class EstoqueController : ControllerBase
     {
-        private AppDbContext _context;
-        private IMapper _mapper;
+        private  readonly AppDbContext _context;
+        private readonly IMapper _mapper;
 
         public EstoqueController(AppDbContext context, IMapper mapper)
         {
@@ -35,7 +35,7 @@ namespace Api.Backend.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Estoque> RecuperaEstoques([FromQuery] string nomeDoEstoque)
+        public IEnumerable<Estoque> RecuperaEstoques()
         {
             return _context.Estoques;
         }

@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Net.NetworkInformation;
 
 namespace Api.Backend.Domain.Models
 {

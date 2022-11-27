@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Api.Backend.Data.Dtos.Produto_Campanha
+﻿namespace Api.Backend.Data.Dtos.Produto_Campanha
 {
     public class CreateProduto_CampanhaDto
     {

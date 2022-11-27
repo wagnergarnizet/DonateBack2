@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Api.Backend.Domain.Models;
+﻿using Api.Backend.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Api.Backend.Data

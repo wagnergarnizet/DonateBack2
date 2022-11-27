@@ -1,10 +1,6 @@
 ﻿using Api.Backend.Data.Dtos.Campanha;
 using Api.Backend.Domain.Models;
 using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Api.Backend.Profiles
 {

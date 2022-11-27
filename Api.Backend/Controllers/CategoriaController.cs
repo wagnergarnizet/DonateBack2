@@ -1,14 +1,11 @@
-﻿using AutoMapper;
+﻿using Api.Backend.Data;
+using Api.Backend.Data.Dtos.Categoria;
+using Api.Backend.Domain.Models;
+using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Api.Backend.Data;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Api.Backend.Domain.Models;
-using Api.Backend.Data.Dtos.Categoria;
-using Microsoft.AspNetCore.Authorization;
 
 namespace Api.Backend.Controllers
 {
@@ -16,8 +13,8 @@ namespace Api.Backend.Controllers
     [Route("[controller]")]
     public class CategoriaController : ControllerBase
     {
-        private AppDbContext _context;
-        private IMapper _mapper;
+        private  readonly AppDbContext _context;
+        private readonly IMapper _mapper;
 
         public CategoriaController(AppDbContext context, IMapper mapper)
         {
@@ -37,7 +34,7 @@ namespace Api.Backend.Controllers
 
         [HttpGet]
         [Authorize(Roles = "Administrador,Usuario")]
-        public IEnumerable<Categoria> RecuperaCategorias([FromQuery] string nomeDaCategoria)
+        public IEnumerable<Categoria> RecuperaCategorias()
         {
             return _context.Categorias;
         }

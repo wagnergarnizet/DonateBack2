@@ -1,10 +1,7 @@
-﻿using System;
+﻿using Api.Backend.Enums;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
-using Api.Backend.Enums;
-using System.Text.Json.Serialization;
 
 namespace Api.Backend.Domain.Models
 {
