@@ -15,8 +15,8 @@ namespace Api.Backend.Controllers
     [Route("[controller]")]
     public class ProdutoController : ControllerBase
     {
-        private AppDbContext _context;
-        private IMapper _mapper;
+        private readonly AppDbContext _context;
+        private readonly IMapper _mapper;
 
         public ProdutoController(AppDbContext context, IMapper mapper)
         {
@@ -35,7 +35,7 @@ namespace Api.Backend.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Produto> RecuperaProdutos([FromQuery] string nomeDoProduto)
+        public IEnumerable<Produto> RecuperaProdutos()
         {
             return _context.Produtos;
         }
@@ -78,6 +78,5 @@ namespace Api.Backend.Controllers
             _context.SaveChanges();
             return NoContent();
         }
-
     }
 }

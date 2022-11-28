@@ -6,13 +6,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Api.Backend.Imagem;
 
 namespace Api.Backend.Imagem
 {
     public class FileService : IFileService
     {
-        private static IList<File> _files = new List<File>();
+        private static readonly IList<File> _files = new List<File>();
 
         private readonly IConfiguration _configuration;
 

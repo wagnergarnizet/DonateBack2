@@ -1,9 +1,6 @@
 ﻿using Api.Backend.Enums;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Api.Backend.Data.Dtos.Usuario
 {

@@ -1,13 +1,10 @@
-﻿using AutoMapper;
+﻿using Api.Backend.Data;
+using Api.Backend.Data.Dtos.Instituicao;
+using Api.Backend.Domain.Models;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Api.Backend.Data;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Api.Backend.Domain.Models;
-using Api.Backend.Data.Dtos.Instituicao;
 
 namespace Api.Backend.Controllers
 {
@@ -15,8 +12,8 @@ namespace Api.Backend.Controllers
     [Route("[controller]")]
     public class InstituicaoController : ControllerBase
     {
-        private AppDbContext _context;
-        private IMapper _mapper;
+        private readonly AppDbContext _context;
+        private readonly IMapper _mapper;
 
         public InstituicaoController(AppDbContext context, IMapper mapper)
         {
@@ -35,7 +32,7 @@ namespace Api.Backend.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Instituicao> RecuperaInstituicaos([FromQuery] string nomeDaInstituicao)
+        public IEnumerable<Instituicao> RecuperaInstituicaos()
         {
             return _context.Instituicaos;
         }

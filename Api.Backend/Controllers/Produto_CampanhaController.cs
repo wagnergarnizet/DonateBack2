@@ -1,14 +1,10 @@
-﻿using AutoMapper;
+﻿using Api.Backend.Data;
+using Api.Backend.Data.Dtos.Produto_Campanha;
+using Api.Backend.Domain.Models;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Api.Backend.Data;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Api.Backend.Domain.Models;
-using Api.Backend.Data.Dtos.Produto;
-using Api.Backend.Data.Dtos.Produto_Campanha;
 
 namespace Api.Backend.Controllers
 {
@@ -16,8 +12,8 @@ namespace Api.Backend.Controllers
     [Route("[controller]")]
     public class Produto_CampanhaController : ControllerBase
     {
-        private AppDbContext _context;
-        private IMapper _mapper;
+        private readonly AppDbContext _context;
+        private readonly IMapper _mapper;
 
         public Produto_CampanhaController(AppDbContext context, IMapper mapper)
         {
@@ -36,7 +32,7 @@ namespace Api.Backend.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Produto_Campanha> RecuperaProduto_Campanhas([FromQuery] string nomeDoProduto)
+        public IEnumerable<Produto_Campanha> RecuperaProduto_Campanhas()
         {
             return _context.Produto_Campanhas;
         }

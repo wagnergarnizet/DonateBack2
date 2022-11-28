@@ -1,14 +1,11 @@
-﻿using AutoMapper;
+﻿using Api.Backend.Data;
+using Api.Backend.Data.Dtos.Usuario;
+using Api.Backend.Domain.Models;
+using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Api.Backend.Data;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Api.Backend.Domain.Models;
-using Api.Backend.Data.Dtos.Usuario;
-using Microsoft.AspNetCore.Authorization;
 
 namespace Api.Backend.Controllers
 {
@@ -16,8 +13,8 @@ namespace Api.Backend.Controllers
     [Route("[controller]")]
     public class UsuarioController : ControllerBase
     {
-        private AppDbContext _context;
-        private IMapper _mapper;
+        private readonly AppDbContext _context;
+        private readonly IMapper _mapper;
 
         public UsuarioController(AppDbContext context, IMapper mapper)
         {
@@ -38,7 +35,7 @@ namespace Api.Backend.Controllers
 
         [HttpGet]
         [Authorize(Roles= "Administrador,Usuario")]
-        public IEnumerable<Usuario> RecuperaUsuarios([FromQuery] string nomeDoUsuario)
+        public IEnumerable<Usuario> RecuperaUsuarios()
         {
             return _context.Usuarios;
         }

@@ -1,5 +1,4 @@
-﻿using Api.Backend.Data.Dtos.Campanha;
-using Api.Backend.Data.Dtos.Produto_Campanha;
+﻿using Api.Backend.Data.Dtos.Produto_Campanha;
 using Api.Backend.Domain.Models;
 using AutoMapper;
 

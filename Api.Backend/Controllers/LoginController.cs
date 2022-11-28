@@ -11,8 +11,8 @@ namespace Api.Backend.Controllers
 {
     public class LoginController: ControllerBase
     {
-        private AppDbContext _context;
-        private IMapper _mapper;
+        private readonly AppDbContext _context;
+        private readonly IMapper _mapper;
         private LoginUsuarioDto user;
 
         public LoginController(AppDbContext context, IMapper mapper)
