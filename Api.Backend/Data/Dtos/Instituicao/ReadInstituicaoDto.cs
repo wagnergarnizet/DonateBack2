@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Api.Backend.Data.Dtos.Instituicao
 {
@@ -43,5 +44,7 @@ namespace Api.Backend.Data.Dtos.Instituicao
         public string Celular { get; set; }
 
         public int? UsuarioId { get; set; }
+
+        public virtual List<Api.Backend.Domain.Models.Campanha> Campanhas { get; set; }
     }
 }

@@ -35,7 +35,7 @@ namespace Api.Backend
         {
             services.AddCors();
             services.AddDbContext<AppDbContext>(opts => opts.UseMySQL(Configuration.GetConnectionString("DonateConnection")));
-            services.AddControllers();
+            services.AddControllers().AddXmlSerializerFormatters(); 
             var key = Encoding.ASCII.GetBytes(Settings.Secret);
             services.AddSingleton((_) => Configuration);
             services.AddScoped<IFileService, FileService>();
