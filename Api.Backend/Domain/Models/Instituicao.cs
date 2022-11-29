@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -48,7 +49,7 @@ namespace Api.Backend.Domain.Models
 
         public virtual Usuario Usuario { get; set; }
         public int? UsuarioId { get; set; }
-   
+        [JsonIgnore]
         public virtual List<Campanha> Campanhas { get; set; }
         public virtual List<Maladireta> Maladiretas { get; set; }
 
