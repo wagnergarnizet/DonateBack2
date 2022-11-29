@@ -55,7 +55,7 @@ namespace Api.Backend.Controllers
         [HttpGet]
         public IEnumerable<Estoque> RecuperaEstoques()
         {
-            return _context.Estoques;
+            return _context.Estoques.Include(x => x.Produto).Include(y => y.Campanha);
         }
 
         [HttpGet("{id}")]
