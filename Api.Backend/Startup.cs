@@ -13,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,7 +36,12 @@ namespace Api.Backend
         {
             services.AddCors();
             services.AddDbContext<AppDbContext>(opts => opts.UseMySQL(Configuration.GetConnectionString("DonateConnection")));
-            services.AddControllers().AddXmlSerializerFormatters(); 
+
+            services.AddControllers().AddNewtonsoftJson(options =>
+            {
+                options.SerializerSettings.ContractResolver = new DefaultContractResolver();
+            });
+
             var key = Encoding.ASCII.GetBytes(Settings.Secret);
             services.AddSingleton((_) => Configuration);
             services.AddScoped<IFileService, FileService>();
