@@ -3,14 +3,16 @@ using System;
 using Api.Backend.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Api.Backend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221128222012_CampanhaProduto")]
+    partial class CampanhaProduto
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -74,7 +76,7 @@ namespace Api.Backend.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int?>("CampanhaId")
+                    b.Property<int>("CampanhaId")
                         .HasColumnType("int");
 
                     b.Property<string>("Observacao")
@@ -152,7 +154,7 @@ namespace Api.Backend.Migrations
                     b.Property<string>("Telefone")
                         .HasColumnType("text");
 
-                    b.Property<int?>("UsuarioId")
+                    b.Property<int>("UsuarioId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -286,7 +288,9 @@ namespace Api.Backend.Migrations
                 {
                     b.HasOne("Api.Backend.Domain.Models.Campanha", "Campanha")
                         .WithMany("Estoques")
-                        .HasForeignKey("CampanhaId");
+                        .HasForeignKey("CampanhaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Api.Backend.Domain.Models.Produto", "Produto")
                         .WithMany("Estoques")
@@ -303,7 +307,9 @@ namespace Api.Backend.Migrations
                 {
                     b.HasOne("Api.Backend.Domain.Models.Usuario", "Usuario")
                         .WithMany("Instituicaos")
-                        .HasForeignKey("UsuarioId");
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Usuario");
                 });

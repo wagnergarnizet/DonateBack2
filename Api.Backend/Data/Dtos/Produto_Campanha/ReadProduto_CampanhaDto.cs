@@ -12,7 +12,7 @@ namespace Api.Backend.Data.Dtos.Produto_Campanha
         public int ProdutoId { get; set; }
 
         public virtual Api.Backend.Domain.Models.Campanha Campanha { get; set; }
-        public int CampanhaId { get; set; }
+        public int? CampanhaId { get; set; }
 
         public int Quantidade { get; set; }
     }

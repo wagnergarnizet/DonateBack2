@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Api.Backend.Domain.Models;
 using Api.Backend.Data.Dtos.Estoque;
+using Api.Backend.Data.Dtos.Produto;
 
 namespace Api.Backend.Controllers
 {
@@ -31,6 +32,23 @@ namespace Api.Backend.Controllers
             Estoque estoque = _mapper.Map<Estoque>(estoqueDto);
             _context.Estoques.Add(estoque);
             _context.SaveChanges();
+          
+
+            Produto produto = _context.Produtos.FirstOrDefault(produto => produto.Id == estoque.ProdutoId);
+ 
+            if (estoque.Tipo== Enums.Tipo.Entrada)
+            {
+                produto.Qtde = produto.Qtde + estoque.Qtde;
+            }
+            else
+            {
+                produto.Qtde = produto.Qtde - estoque.Qtde;
+            }
+
+            _context.Produtos.Update(produto);
+             _context.SaveChanges();
+
+
             return CreatedAtAction(nameof(RecuperaEstoquesPorId), new { Id = estoque.Id }, estoque);
         }
 
@@ -52,32 +70,7 @@ namespace Api.Backend.Controllers
             return NotFound();
         }
 
-        [HttpPut("{id}")]
-        public IActionResult AtualizaEstoque(int id, [FromBody] UpdateEstoqueDto estoqueDto)
-        {
-            Estoque estoque = _context.Estoques.FirstOrDefault(estoque => estoque.Id == id);
-            if (estoque == null)
-            {
-                return NotFound();
-            }
-            _mapper.Map(estoqueDto, estoque);
-            _context.SaveChanges();
-            return NoContent();
-        }
-
-
-        [HttpDelete("{id}")]
-        public IActionResult DeletaEstoque(int id)
-        {
-            Estoque estoque = _context.Estoques.FirstOrDefault(estoque => estoque.Id == id);
-            if (estoque == null)
-            {
-                return NotFound();
-            }
-            _context.Remove(estoque);
-            _context.SaveChanges();
-            return NoContent();
-        }
+ 
 
     }
 }

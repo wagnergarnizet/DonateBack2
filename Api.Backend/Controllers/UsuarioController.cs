@@ -45,7 +45,7 @@ namespace Api.Backend.Controllers
         public IActionResult RecuperaUsuariosPorId(int id)
         {
             Usuario usuario = _context.Usuarios.FirstOrDefault(usuario => usuario.Id == id);
-            if (usuario != null)
+            if (usuario != null && usuario.Ativo == true)
             {
                 ReadUsuarioDto usuarioDto = _mapper.Map<ReadUsuarioDto>(usuario);
                 return Ok(usuarioDto);
@@ -57,7 +57,7 @@ namespace Api.Backend.Controllers
         public IActionResult AtualizaUsuario(int id, [FromBody] UpdateUsuarioDto usuarioDto)
         {
             Usuario usuario = _context.Usuarios.FirstOrDefault(usuario => usuario.Id == id);
-            if (usuario == null)
+            if (usuario == null && usuario.Ativo == true)
             {
                 return NotFound();
             }
@@ -75,7 +75,7 @@ namespace Api.Backend.Controllers
             {
                 return NotFound();
             }
-            _context.Remove(usuario);
+            usuario.Ativo = false;
             _context.SaveChanges();
             return NoContent();
         }
