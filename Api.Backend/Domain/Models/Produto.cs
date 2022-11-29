@@ -1,4 +1,5 @@
 ﻿using Api.Backend.Enums;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -23,9 +24,9 @@ namespace Api.Backend.Domain.Models
 
         public virtual Categoria Categoria { get; set; }
         public int CategoriaId { get; set; }
-
+        [JsonIgnore]
         public virtual List<Estoque> Estoques { get; set; }
-
+        [JsonIgnore]
         public virtual List<Produto_Campanha>  Produto_Campanhas { get; set; }
         
     }
