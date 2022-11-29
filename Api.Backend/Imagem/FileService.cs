@@ -28,6 +28,8 @@ namespace Api.Backend.Imagem
             });
         }
 
+
+
         public async Task SaveFiles(List<IFormFile> files)
         {
             foreach (var file in files)
