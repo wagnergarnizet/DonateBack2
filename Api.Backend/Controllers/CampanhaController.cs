@@ -3,10 +3,9 @@ using Api.Backend.Data.Dtos.Campanha;
 using Api.Backend.Domain.Models;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
-using System;
-using Microsoft.EntityFrameworkCore;
 
 namespace Api.Backend.Controllers
 {
@@ -42,7 +41,7 @@ namespace Api.Backend.Controllers
         [HttpGet("{id}")]
         public IActionResult RecuperaCampanhasPorId(int id)
         {
-            Campanha campanha = _context.Campanhas.FirstOrDefault(campanha => campanha.Id == id);
+            Campanha campanha = _context.Campanhas.Include(x => x.Instituicao).FirstOrDefault(campanha => campanha.Id == id);
             if (campanha != null)
             {
                 ReadCampanhaDto campanhaDto = _mapper.Map<ReadCampanhaDto>(campanha);
