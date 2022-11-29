@@ -71,7 +71,7 @@ namespace Api.Backend.Controllers
             {
                 return NotFound();
             }
-            _context.Remove(campanha);
+            campanha.Ativo = false;
             _context.SaveChanges();
             return NoContent();
         }

@@ -31,7 +31,7 @@ namespace Api.Backend.Controllers
                 }
                 else
                 {
-                    return StatusCode(204, "Any file were sent!");
+                    return StatusCode(204, "Arquivo não enviado!");
                 }
             }
             catch (Exception e)

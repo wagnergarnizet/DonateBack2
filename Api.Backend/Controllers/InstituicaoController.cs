@@ -71,7 +71,7 @@ namespace Api.Backend.Controllers
             {
                 return NotFound();
             }
-            _context.Remove(instituicao);
+            instituicao.Ativo = false;
             _context.SaveChanges();
             return NoContent();
         }

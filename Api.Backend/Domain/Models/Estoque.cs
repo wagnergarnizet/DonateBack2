@@ -13,7 +13,7 @@ namespace Api.Backend.Domain.Models
         public int ProdutoId { get; set; }
 
         public virtual Campanha Campanha { get; set; }
-        public int CampanhaId { get; set; }
+        public int? CampanhaId { get; set; }
 
         public int Qtde { get; set; }
         public Tipo Tipo { get; set; }

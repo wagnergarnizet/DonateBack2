@@ -62,7 +62,7 @@ namespace Api.Backend.Controllers
             }
             _mapper.Map(produtoDto, produto);
             _context.SaveChanges();
-            return NoContent();
+            return Content("Produto Atualizado");
         }
 
 

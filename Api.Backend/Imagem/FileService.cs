@@ -70,7 +70,7 @@ namespace Api.Backend.Imagem
 
             var fileUrl = _configuration["Directories:Files"]
                 .Replace("wwwroot", "")
-                .Replace("\\", "");
+                .Replace("/", "");
 
             return (baseUrl + "/" + fileUrl + "/" + fileName);
         }

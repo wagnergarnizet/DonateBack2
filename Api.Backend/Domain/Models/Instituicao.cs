@@ -47,7 +47,7 @@ namespace Api.Backend.Domain.Models
         public string Celular { get; set; }
 
         public virtual Usuario Usuario { get; set; }
-        public int UsuarioId { get; set; }
+        public int? UsuarioId { get; set; }
    
         public virtual List<Campanha> Campanhas { get; set; }
         public virtual List<Maladireta> Maladiretas { get; set; }

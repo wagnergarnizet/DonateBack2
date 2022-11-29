@@ -39,6 +39,6 @@ namespace Api.Backend.Data.Dtos.Instituicao
 
         public string Celular { get; set; }
 
-        public int UsuarioId { get; set; }
+        public int? UsuarioId { get; set; }
     }
 }
